@@ -27,7 +27,7 @@ const ApiService = {
             });
             return response.data;
         } catch (error) {
-            throw error;
+            console.error('Error fetching locations for given state:', error);
         }
     },
 

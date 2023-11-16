@@ -6,10 +6,7 @@ const Dropdown = ({ selectedStateId, setSelectedStateId }) => {
   const [statesList, setStatesList] = useState([{ id: 1, name: 'New York' }]);
 
   const onStateChange = (state) => {
-    console.log(state);
-    console.log(statesList);
     const newSelectedState = statesList.find((s) => s.name === state);
-    console.log(newSelectedState);
     setSelectedStateId(newSelectedState.id);
   };
 

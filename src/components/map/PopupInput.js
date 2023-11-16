@@ -7,19 +7,19 @@ const PopupInput = ({ newMarkerData, setNewMarkerData, handleSaveMarker, handleC
   return (
     <Popup closeButton={false}>
       <Box p={2} minWidth={200}>
-        <Typography variant="h6">Add Marker</Typography>
+        <Typography variant="h6">Marker Info</Typography>
         <TextField
           label="Title"
           variant="outlined"
           fullWidth
-          value={newMarkerData.title}
+          value={newMarkerData? newMarkerData.title: ''}
           onChange={(e) => setNewMarkerData((prevData) => ({ ...prevData, title: e.target.value }))}
         />
         <TextField
           label="Address"
           variant="outlined"
           fullWidth
-          value={newMarkerData.address}
+          value={newMarkerData? newMarkerData.address: ''}
           onChange={(e) => setNewMarkerData((prevData) => ({ ...prevData, address: e.target.value }))}
         />
         <Button variant="contained" color="primary" onClick={handleSaveMarker}>

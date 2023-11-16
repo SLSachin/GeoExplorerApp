@@ -11,7 +11,6 @@ const SignIn = ({setIsAuthenticated}) => {
     const { success, message } = await AuthService.login(username, password);
 
     if (success) {
-      // Handle successful sign-in (e.g., store user data in state or context)
       setIsAuthenticated(true);
     } else {
       setError(message);

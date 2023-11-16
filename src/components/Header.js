@@ -12,7 +12,7 @@ const Header = ({ selectedStateId, setSelectedStateId, setIsAuthenticated }) => 
     <AppBar position="static" style={{ backgroundColor: '#365092' }}>
       <Container maxWidth="lg">
         <Toolbar>
-          <Box>
+        <Box sx={{ marginLeft: '20px' }}>
             <Dropdown selectedStateId={selectedStateId} setSelectedStateId={setSelectedStateId} />
           </Box>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
@@ -23,7 +23,6 @@ const Header = ({ selectedStateId, setSelectedStateId, setIsAuthenticated }) => 
               Logout
             </Button>
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>
