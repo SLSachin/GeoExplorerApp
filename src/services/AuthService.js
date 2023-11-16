@@ -20,10 +20,10 @@ const AuthService = {
     register: async (username, password) => {
         try {
             const response = await axios.post(`${BASE_URL}/api/register`, { username, password });
-            const { token, user } = response.data;
+            const token = response.data.result.toString();
             // Store the token in localStorage or a more secure storage
             localStorage.setItem('token', token);
-            return { success: true, user };
+            return { success: true, message: 'Registration successful' };
         } catch (error) {
             return { success: false, message: 'Registration failed' };
         }

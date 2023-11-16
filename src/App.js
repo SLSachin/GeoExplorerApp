@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import MapView from './components/map/MapView';
 import LoginPage from './components/auth/LoginPage';
-import AuthService from './services/AuthService';
 import Header from './components/Header';
 
 function App() {

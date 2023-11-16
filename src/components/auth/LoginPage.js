@@ -28,7 +28,7 @@ const LoginPage = ({setIsAuthenticated}) => {
           <Tab label="Sign Up" />
         </Tabs>
         {tabIndex === 0 ? <SignIn setIsAuthenticated={setIsAuthenticated}/> 
-        : <SignUp setIsAutheniticated={setIsAuthenticated}/>}
+        : <SignUp setIsAuthenticated={setIsAuthenticated}/>}
       </Paper>
     </Container>
   );

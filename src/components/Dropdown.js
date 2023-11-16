@@ -17,18 +17,16 @@ const Dropdown = ({ selectedStateId, setSelectedStateId }) => {
     const fetchStates = async () => {
       try {
         const states = await ApiService.getAllStates();
-        console.log(states);
         setStatesList(states);
       } catch (error) {
         console.error('Error fetching states:', error);
       }
     };
-
     fetchStates();
   }, []);
 
   return (
-    <FormControl style={{ maxWidth: '200px', position: 'absolute', left: '10px', backgroundColor: '#c4e1d9' }}>
+    <FormControl style={{ maxWidth: '200px', position: 'relative', backgroundColor: 'rgb(255 255 255)', marginTop: '5px'}}>
       <InputLabel id="stateDropdownLabel">Select a State:</InputLabel>
       <Select
         labelId="stateDropdownLabel"
@@ -36,6 +34,7 @@ const Dropdown = ({ selectedStateId, setSelectedStateId }) => {
         value={statesList.find((s) => s.id === selectedStateId).name}
         label="Select a State"
         onChange={(e) => onStateChange(e.target.value)}
+        sx={{ height: '30px' , width: '150px'}}
       >
         {statesList.map((state) => (
           <MenuItem key={state.id} value={state.name}>

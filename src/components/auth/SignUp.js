@@ -11,7 +11,6 @@ const SignUp = ({setIsAuthenticated}) => {
     const { success, message } = await AuthService.register(username, password);
 
     if (success) {
-      // Handle successful sign-up (e.g., redirect to login page)
       setIsAuthenticated(true)
     } else {
       setError(message);

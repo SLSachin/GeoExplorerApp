@@ -7,13 +7,11 @@ const ApiService = {
     getAllStates: async () => {
         try {
             const token = localStorage.getItem('token');
-            console.log(token)
             const response = await axios.get(`${BASE_URL}/api/location/state`, {
                 headers: {
-                    Authorization: `bearer ${localStorage.getItem('token')}`,
+                    Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response)
             return response.data;
         } catch (error) {
             throw error
@@ -22,13 +20,11 @@ const ApiService = {
 
     getLocationsByStateId: async (stateId) => {
         try {
-            console.log(stateId)
             const response = await axios.get(`${BASE_URL}/api/location/${stateId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             });
-            console.log(response)
             return response.data;
         } catch (error) {
             throw error;
@@ -37,7 +33,14 @@ const ApiService = {
 
     addLocation: async (locationData) => {
         try {
-            const response = await axios.post(`${BASE_URL}/locations`, locationData);
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+              };
+            const response = await axios.post(`${BASE_URL}/api/location`, locationData, config);
             return response.data;
         } catch (error) {
             throw error;
@@ -46,7 +49,14 @@ const ApiService = {
 
     editLocation: async (locationId, updatedData) => {
         try {
-            const response = await axios.put(`${BASE_URL}/locations/${locationId}`, updatedData);
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+              };
+            const response = await axios.put(`${BASE_URL}/api/location/${locationId}`, updatedData, config);
             return response.data;
         } catch (error) {
             throw error;
@@ -55,7 +65,11 @@ const ApiService = {
 
     deleteLocation: async (locationId) => {
         try {
-            const response = await axios.delete(`${BASE_URL}/locations/${locationId}`);
+            const response = await axios.delete(`${BASE_URL}/api/location/${locationId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
             return response.data;
         } catch (error) {
             throw error;
